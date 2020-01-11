@@ -1,0 +1,22 @@
+from src.config.logger import logger
+from src.factories.factoryDAO import FactoryDAO
+from src.controllers.artist import Artist
+from src.controllers.spotify import Spotify
+
+
+class Factory:
+
+    def __init__(self):
+        logger.info('Starting a Factory')
+        self.__factory_dao = FactoryDAO()
+
+    def get_artist(self):
+        logger.info('Getting a artist')
+        dao = self.__factory_dao.get_artist()
+        artist = Artist(dao)
+        return artist
+
+    def get_spotify(self):
+        logger.info('Getting a spotify')
+        spotify = Spotify()
+        return spotify
