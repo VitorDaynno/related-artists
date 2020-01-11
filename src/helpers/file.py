@@ -1,16 +1,16 @@
 class FileHelper:
 
     def __init__(self):
-        self.file = None
+        self.__file = None
 
     def open(self, file, mode):
-        self.file = open(file, mode)
+        self.__file = open(file, mode)
 
     def write(self, line):
-        self.file.write(line + "\n")
+        self.__file.write(line + "\n")
 
     def close(self):
-        self.file.close()
+        self.__file.close()
 
     def get_lines(self):
-        return self.file.readlines()
+        return self.__file.readlines()

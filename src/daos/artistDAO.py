@@ -17,6 +17,6 @@ class ArtistDAO():
             return list(artists)
         except:
             error = sys.exc_info()
-            logger.error('An error occurred: {error}'.format(error))
+            logger.error('An error occurred: {0}'.format(error))
         finally:
             self.__db.close()

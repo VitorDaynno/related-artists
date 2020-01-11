@@ -1,4 +1,4 @@
 .env
 to_processed
-watchgod.py
+watchgod_conf.py
 *.pyc

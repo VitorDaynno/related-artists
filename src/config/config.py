@@ -40,3 +40,23 @@ class Config:
         else:
             logger.info("Get db's name with success")
             return DB_NAME
+    
+    def get_artist_url(self):
+        logger.info("Getting artist's url for enviroment")
+        ARTIST_URL = os.getenv("ARTIST_URL")
+        if ARTIST_URL is None:
+            logger.error("ARTIST_URL not found")
+            sys.exit()
+        else:
+            logger.info("Get artist's url with success")
+            return ARTIST_URL
+
+    def get_token(self):
+        logger.info("Getting spotify's token for enviroment")
+        SPOTIFY_TOKEN = os.getenv("SPOTIFY_TOKEN")
+        if SPOTIFY_TOKEN is None:
+            logger.error("SPOTIFY_TOKEN not found")
+            sys.exit()
+        else:
+            logger.info("Get spotify's token with success")
+            return SPOTIFY_TOKEN
