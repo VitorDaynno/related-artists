@@ -18,7 +18,10 @@ class Spotify():
                 raise Exception("Artist not found")
             artist = {
                 "spotify_id": response["id"],
-                "name": response["name"]
+                "name": response["name"],
+                "followers": response["followers"]["total"],
+                "genres": response["genres"],
+                "popularity": response["popularity"]
             }
             
             return artist
