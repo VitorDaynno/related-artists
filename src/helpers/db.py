@@ -22,5 +22,15 @@ class DBHelper():
         registries = collection.find(filters)
         return registries
 
+    def save(self, collection_name, artist):
+        collection = self.__db[collection_name]
+        result = collection.save(artist)
+        return result
+
+    def distinct(self, collection_name, field):
+        collection = self.__db[collection_name]
+        registries = collection.distinct(field)
+        return registries
+
     def close(self):
          self.__client.close()

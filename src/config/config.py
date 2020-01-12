@@ -51,6 +51,16 @@ class Config:
             logger.info("Get artist's url with success")
             return ARTIST_URL
 
+    def get_related_artists_url(self):
+        logger.info("Getting related artists's url for enviroment")
+        RELATED_ARTISTS_URL = os.getenv("RELATED_ARTISTS_URL")
+        if RELATED_ARTISTS_URL is None:
+            logger.error("RELATED_ARTISTS_URL not found")
+            sys.exit()
+        else:
+            logger.info("Get related artists's url with success")
+            return RELATED_ARTISTS_URL
+
     def get_token(self):
         logger.info("Getting spotify's token for enviroment")
         SPOTIFY_TOKEN = os.getenv("SPOTIFY_TOKEN")

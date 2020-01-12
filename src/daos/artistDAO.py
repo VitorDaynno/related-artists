@@ -15,8 +15,32 @@ class ArtistDAO():
             self.__db.open()
             artists = self.__db.find("artists", filters)
             return list(artists)
-        except:
-            error = sys.exc_info()
-            logger.error('An error occurred: {0}'.format(error))
+        except Exception as error:
+            logger.error("An error occurred: {0}".format(error))
+            raise error
+        finally:
+            self.__db.close()
+    
+    def save(self, artist):
+        logger.info("Starting save artist")
+        try:
+            self.__db.open()
+            artists = self.__db.save("artists", artist)
+            return artists
+        except Exception as error:
+            logger.error("An error occurred: {0}".format(error))
+            raise error
+        finally:
+            self.__db.close()
+
+    def get_spotify_ids(self):
+        logger.info("Starting get spotify's ids")
+        try:
+            self.__db.open()
+            ids = self.__db.distinct("artists", "spotify_id")
+            return list(ids)
+        except Exception as error:
+            logger.error("An error occurred: {0}".format(error))
+            raise error
         finally:
             self.__db.close()

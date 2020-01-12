@@ -1,4 +1,5 @@
 .env
-to_processed
+to_process
 watchgod_conf.py
 *.pyc
+.vscode
